@@ -1,0 +1,72 @@
+<h1 mat-dialog-title>Ajouter une Client</h1>
+
+<form class="example-form" [formGroup]="Reactiveform" (ngSubmit)=" getClientFormData()">
+  <mat-form-field class="example-full-width">
+    <mat-label>Id Client </mat-label>
+    <input matInput placeholder="" value=""formControlName="idclient">
+   
+
+  </mat-form-field>
+ 
+    <mat-form-field class="example-full-width">
+      <mat-label>Nom </mat-label>
+      <input matInput placeholder="Saisir Nom de Client" value="" formControlName="Nom">
+    </mat-form-field>
+   
+    <mat-form-field class="example-full-width">
+      <mat-label> Age</mat-label>
+      <input type="number" matInput placeholder="" value="" formControlName="Age">
+    </mat-form-field>
+   
+    <mat-form-field appearance="fill" >
+      <mat-label>Type</mat-label >
+      <select matNativeControl formControlName="Types_pieces" required  >
+        <option value="CIN">CIN</option>
+        <option value="Passport">Passport</option>
+      </select>
+    </mat-form-field >
+    <mat-form-field class="example-full-width">
+        <mat-label>Numéro pièce </mat-label>
+        <input  matInput placeholder="" value=""formControlName="numPiece">
+      </mat-form-field>
+      <mat-form-field class="example-full-width" >
+        <mat-label>Adresse </mat-label>
+        <input matInput placeholder="" value="" formControlName="Adresse">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label> Télephone</mat-label>
+        <input  matInput placeholder="" value="" formControlName="télephone">
+      </mat-form-field>
+    
+      <mat-form-field appearance="fill">
+        <mat-label>Choisir Date d'arrivée</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="date_arrivee">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Choisir Date départ</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="date_depart">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <div mat-dialog-actions>
+        <button  type="submit" mat-raised-button color="primary" cdkFocusInitial  *ngIf="editmode==true">Modifier</button>
+        <button  type="submit" mat-raised-button color="primary" cdkFocusInitial *ngIf="editmode==false">Enregistrer</button>
+        </div>
+   <!--   <input type="submit" value="Enregistrer" style=" background-color: #676869;
+      border: none;
+      color: rgb(16, 208, 112);
+      padding: 15px 30px;
+      text-decoration: none;
+      margin: 4px 2px;
+      cursor: pointer;"> -->
+      
+
+  
+  
+    
+  </form>
+  

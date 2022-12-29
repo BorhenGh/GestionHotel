@@ -1,0 +1,35 @@
+<div class="example-button-row">
+    <button (click)="addclick()" mat-raised-button color="primary">Ajouter</button>
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id Tables</th>
+            <th>Numéro Table</th>
+            <th>Type</th>
+        
+            <th>Etat </th>
+         
+            <th>Prix</th>
+            <th>Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let dataitem of Listtables  ">
+            <td>{{dataitem.idtable}}</td>
+            <td>{{dataitem.numTable}}</td>
+        
+            <td>{{dataitem.type}}</td>
+            
+            <td>{{dataitem.etat}}</td>
+            <td>{{ dataitem.prix  |  currency : ' TND '}}</td>
+         
+            <td> <button type="button" class="btn btn-warning"  (click)="update(dataitem.idtable)">Modifier</button>
+                <button type="button"(click)="supprimer(dataitem.idtable)" class="btn btn-danger">Supprimer</button>
+            </td>
+       
+        </tr>
+    </tbody>
+
+
+</table>

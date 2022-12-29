@@ -1,0 +1,95 @@
+<div class="example-button-row">
+    <button (click)="add()" mat-raised-button color="primary">Ajouter</button>
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id reservation</th>
+            <th>Date réservation</th>
+            <th>Date Arrivée</th>
+            <th>Date Départ</th>
+            <th>Nombre des adultes</th>
+            <th>Nombre des enfants</th>
+      
+            <th>Client Id</th>
+
+            <th>Chambre Id</th>
+   
+            <th>Num chambre </th>
+   
+ 
+            <th>Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr  *ngFor="let dataitem of ListReservations  ">
+            <td>{{dataitem.idreserCh}}</td>
+            <td>{{dataitem.date_reser|date}}</td>
+            <td>{{dataitem.date_arrivee|date}}</td>
+            <td>{{dataitem.date_depart|date}}</td>
+            <td>{{dataitem.nombreAdultes}}</td>
+            <td>{{dataitem.nombreEnfants}}</td>
+
+            <td>{{dataitem.idclient}}</td>
+            
+                  <td>{{dataitem.idchambre}}</td>
+                  <td>{{dataitem.numChambre}}</td>
+            
+            <td> <button type="button" class="btn btn-warning"  (click)="update(dataitem.idreserCh)">Modifier</button>
+                <button type="button"(click)="supprimer(dataitem.idreserCh)" class="btn btn-danger">Supprimer</button>
+            </td>
+       
+        </tr>
+    </tbody>
+
+
+</table>
+<div class="example-button-row"><button type="button" class="btn btn-warning"  (click)="generatePdf()">Télecharger</button></div>
+<h1 class="tex">Reservation chambre en détails</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nom Client</th>
+            <th>Numéro pièce</th>
+            <th>Date réservation</th>
+          
+            <th>Nombre des adultes</th>
+            <th>Nombre des enfants</th>
+      
+          
+           
+
+            <th>Numéro Chambre</th>
+   
+            <th>Type </th>
+            <th>Prix Chambre </th>
+   
+ 
+         
+        </tr>
+    </thead>
+    <tbody>
+        <tr  *ngFor="let dataitem of  ListReservationsDe ">
+            <td>{{dataitem.t3.nom}}</td>
+            <td>{{dataitem.t3.numPiece}}</td>
+            <td>{{dataitem.t1.date_reser|date}}</td>
+            
+            <td>{{dataitem.t1.nombreAdultes}}</td>
+            <td>{{dataitem.t1.nombreEnfants}}</td>
+
+        
+         
+            
+                  <td>{{dataitem.t2.numChambre}}</td>
+                  <td>{{dataitem.t2.type}}</td>
+                  <td>{{dataitem.t2.prix  |  currency : ' TND '}}</td>
+          
+       
+        </tr>
+    </tbody>
+
+
+</table>
+
+

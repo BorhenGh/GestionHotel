@@ -1,0 +1,44 @@
+
+
+
+<section class="ticket-section section-padding">
+    <div class="section-overlay"></div>
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-6 col-10 mx-auto">
+                <form class="custom-form ticket-form mb-5 mb-lg-0"[formGroup]="SignForm" (ngSubmit)=" onSubmit()">
+                    <h2 class="text-center mb-4">Saisir votre Login et Password </h2>
+
+                    <div class="ticket-form-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <input type="text" formControlName="login" id="ticket-form-name" class="form-control" placeholder="Saisir Votre Login" required>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <input type="password" formControlName="password" class="form-control" placeholder="Saisir Votre password" required>
+                            </div>
+                            
+                        </div>
+
+                    
+
+                           
+                        </div>
+
+                    
+
+                        <div class="col-lg-4 col-md-10 col-8 mx-auto">
+                            <button type="submit" class="form-control">Connecter</button>
+                        </div><br>
+                        <div >
+                            <a routerLink="/inscription" class="btn btn-primary">S'Inscrire
+                        </a> </div>
+                      
+                  
+                </form>
+        </div>
+    </div>
+</div></section>

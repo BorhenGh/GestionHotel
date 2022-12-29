@@ -1,0 +1,47 @@
+<h1 mat-dialog-title>Ajouter une Salle</h1>
+
+<form class="example-form"  [formGroup]="Reactiveform" (ngSubmit)=" SaveSallesData()">
+  <mat-form-field class="example-full-width">
+    <mat-label>Id Salle </mat-label>
+    <input matInput placeholder="Id chambre" formControlName="idsalle" >
+  </mat-form-field>
+   
+      
+      <mat-form-field appearance="fill">
+        <mat-label>Etat Salle</mat-label>
+        <select matNativeControl required formControlName="etat">
+          <option value="Réservée">Réservée</option>
+          <option value="Disponible">Disponible</option>
+        
+        </select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Type Salle</mat-label>
+      <select matNativeControl required formControlName="type">
+        <option value="Salles des fêtes">Salles des fêtes</option>
+        <option value="Salles de restaurant">Salles de restaurant</option>
+        <option value="Salles polyvalentes">Salles polyvalentes</option>
+        <option value="Les Péniches ">Les Péniches
+        </option>
+      </select>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Prix</mat-label>
+      <input matInput formControlName="prix" placeholder="Nombre des places" value="0">
+    </mat-form-field>
+    <div mat-dialog-actions>
+      <button mat-raised-button color="warn" mat-dialog-close>Fermer</button>
+      <button  type="submit" [disabled]="Reactiveform.invalid" mat-raised-button color="primary" cdkFocusInitial  *ngIf="editmode==true">Modifier</button>
+      <button  type="submit" [disabled]="Reactiveform.invalid" mat-raised-button color="primary" cdkFocusInitial *ngIf="editmode==false">Enregistrer</button>
+      
+    </div>
+    
+ 
+
+      
+
+  
+  
+    
+  </form>
+

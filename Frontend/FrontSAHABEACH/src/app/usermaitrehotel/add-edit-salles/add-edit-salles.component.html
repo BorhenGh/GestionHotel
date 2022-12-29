@@ -1,0 +1,44 @@
+<h1 mat-dialog-title>Ajouter une nouvelle reservation Salle</h1>
+
+<form class="example-form"  [formGroup]="Reactiveform" (ngSubmit)=" getReservFormData()">
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Id</mat-label>
+    <input matInput placeholder="" value="" formControlName="idresersalle">
+  </mat-form-field>
+      <mat-form-field appearance="fill" >
+        <mat-label>Choisir Date de reservation</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="date_reser">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    
+     
+      <mat-form-field class="example-full-width">
+        <mat-label>Nombre des personnes</mat-label>
+        <input matInput placeholder="Saisir Nombre des enfants" value="" formControlName="nombrePersonnes">
+      </mat-form-field>
+      <mat-form-field appearance="fill" >
+        <mat-label>Nom Client</mat-label >
+        <select formControlName="idclient" matNativeControl required  >
+          <option *ngFor="let item of listclients"  value={{item.idclient}}>{{item.nom}}</option>
+       
+        </select>
+      </mat-form-field >
+      <mat-form-field appearance="fill" >
+        <mat-label>Type Salle</mat-label >
+        <select matNativeControl  required formControlName="idsalle" >
+          <option *ngFor="let item of listsalles"  value={{item.idsalle}}>{{item.type}}</option>
+         
+        </select>
+      </mat-form-field >
+  
+      <div mat-dialog-actions>
+        <button mat-raised-button color="warn" mat-dialog-close>Fermer</button>
+        <button  type="submit" mat-raised-button color="primary" cdkFocusInitial  *ngIf="editmode==true">Modifier</button>
+        <button  type="submit" mat-raised-button color="primary" cdkFocusInitial *ngIf="editmode==false">Enregistrer</button>
+        
+      </div>
+    
+  </form>

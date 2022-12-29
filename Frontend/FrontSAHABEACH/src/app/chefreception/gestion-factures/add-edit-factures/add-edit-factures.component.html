@@ -1,0 +1,42 @@
+<h1 mat-dialog-title>Ajouter une facture</h1>
+
+<form class="example-form"  [formGroup]="Reactiveform" (ngSubmit)=" getReservFormData()">
+  <mat-form-field class="example-full-width">
+    <mat-label>IdFacture </mat-label>
+    <input matInput placeholder="" value="" formControlName="idfacture">
+  </mat-form-field> 
+  <mat-form-field appearance="fill">
+        <mat-label>Choisir Date de facture</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="date_facture">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Montant Facture </mat-label>
+      <input matInput placeholder="" value="" formControlName="montant">
+    </mat-form-field>
+    <mat-form-field appearance="fill" >
+      <mat-label>Nom Client</mat-label >
+      <select formControlName="idclient" matNativeControl required  >
+        <option *ngFor="let item of listclients"  value={{item.idclient}}>{{item.nom}}</option>
+     
+      </select>
+    </mat-form-field >
+    
+    
+   
+    <div mat-dialog-actions>
+      <button mat-raised-button color="warn" mat-dialog-close>Fermer</button>
+      <button  type="submit" mat-raised-button color="primary" cdkFocusInitial  *ngIf="editmode==true">Modifier</button>
+      <button  type="submit" mat-raised-button color="primary" cdkFocusInitial *ngIf="editmode==false">Enregistrer</button>
+      
+    </div>
+     
+      
+
+  
+  
+    
+  </form>
+

@@ -1,0 +1,84 @@
+<div class="example-button-row">
+    <button (click)="add()" mat-raised-button color="primary">Ajouter</button>
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id reservation</th>
+            <th>Date réservation</th>
+          
+            <th>Nombre des personnes</th>
+         
+          
+            <th>Client Id</th>
+
+            <th>Salle Id</th>
+   
+            <th>Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr  *ngFor="let dataitem of ListReservations  ">
+            <td>{{dataitem.idresersalle}}</td>
+            <td>{{dataitem.date_reser|date}}</td>
+            
+            <td>{{dataitem.nombrePersonnes}}</td>
+       
+    
+            <td>{{dataitem.idclient}}</td>
+            <td>{{dataitem.idsalle}}</td>
+    
+            
+            <td> <button type="button" class="btn btn-warning"  (click)="update(dataitem.idresersalle)">Modifier</button>
+                <button type="button"(click)="supprimer(dataitem.idresersalle)" class="btn btn-danger">Supprimer</button>
+            </td>
+       
+        </tr>
+    </tbody>
+
+
+</table>
+<div class="example-button-row"><button type="button" class="btn btn-warning"  (click)="generatePdf()">Télecharger</button></div>
+
+<h1 class="tex">Reservation Salle en détails</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nom Client</th>
+            <th>Numéro pièce</th>
+            <th>Date réservation</th>
+            
+            <th>Nombre des personnes</th>
+        
+          
+           
+
+            <th>Typ de la Salle</th>
+   
+         
+            <th>Prix Salle </th>
+   
+        </tr>
+    </thead>
+    <tbody>
+        <tr  *ngFor="let dataitem of ListeReserSalleDet  ">
+         
+            <td>{{dataitem.t3.nom}}</td>
+            <td>{{dataitem.t3.numPiece}}</td>
+            <td>{{dataitem.t1.date_reser|date}}</td>
+           
+            
+            <td>{{dataitem.t1.nombrePersonnes}}</td>
+       
+    
+            <td>{{dataitem.t2.type}}</td>
+            <td>{{dataitem.t2.prix  |  currency : ' TND '}}</td>
+    
+            
+          
+       
+        </tr>
+    </tbody>
+
+
+</table>

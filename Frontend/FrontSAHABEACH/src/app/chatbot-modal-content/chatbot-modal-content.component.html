@@ -1,0 +1,15 @@
+<div class="popup">
+    <h1>Bienvenue dans chatbot SAHABEACH</h1>
+    <div class="user-message">
+        <input type="text" [(ngModel)]="message" />
+      </div><br>
+
+      <div class="chatbot-message">
+        <div *ngFor="let message of conversation">{{ message }}</div>
+      </div><br>
+     
+    
+
+        </div>
+ 
+        <button (click)="sendMessage()" class="button-send-message">Envoyer</button>

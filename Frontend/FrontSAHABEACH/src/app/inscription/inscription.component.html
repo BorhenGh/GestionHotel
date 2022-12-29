@@ -1,0 +1,60 @@
+<section class="ticket-section section-padding">
+    <div class="section-overlay"></div>
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-6 col-10 mx-auto">
+                <form class="custom-form ticket-form mb-5 mb-lg-0"  [formGroup]="Reactiveform" (ngSubmit)="SignUp()">
+                    <h2 class="text-center mb-4">Enregistrer vos coordonées</h2>
+
+                    <div class="ticket-form-body">
+                        <div class="row">
+                           
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <input type="text" formControlName="login" id="ticket-form-name" class="form-control" placeholder="Saisir Votre Login" required><br>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <input type="text" formControlName="nomUser" class="form-control" placeholder="Saisir Votre Nom" required>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <input type="text" formControlName="prenomUser" class="form-control" placeholder="Saisir Votre prénom" required><br>
+                            </div>
+                           
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <input type="password" formControlName="password" class="form-control" placeholder="Saisir Votre password" required><br>
+                            </div>
+                            <div *ngIf="Reactiveform.get('password')?.invalid && Reactiveform.get('password')?.touched" class="err">
+                                Le mot de passe doit comprendre au moins un chiffre, une majuscule et un caractère spécial.
+                              </div><br><br>
+                            <select class="form-select" aria-label="Default select example" formControlName="roles">
+                                <option selected>Choisir votre rôle dans notre hôtel</option>
+                                <option value="Directeur">Directeur</option>
+                                <option value="Réceptionniste">Réceptionniste</option>
+                                <option value="Chef de réception">Chef de réception</option>
+                                <option value="Maître d'hôtel">Maître d'hôtel</option>
+                              </select>
+                            
+                        </div>
+
+                    
+
+                           
+                        </div><br> <br>
+
+                    
+
+                        <div class="col-lg-4 col-md-10 col-8 mx-auto">
+                            <button type="submit" class="form-control">Enregistrer</button>
+                        </div><br>
+                      
+                  
+                </form>
+        </div>
+    </div>
+</div></section>
+<a routerLink="/userdirector">To Director</a>
+<a routerLink="/userRecep">To Receptionniste</a>
+<a routerLink="/userchefreception">To chef reception</a>
+<a routerLink="/usermaitrehotel">To Maitre Hotel</a>

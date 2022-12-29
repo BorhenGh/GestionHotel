@@ -1,0 +1,33 @@
+<div class="example-button-row"><button type="button" class="btn btn-warning"  (click)="generatePdf()">Télecharger</button></div>
+
+<h1 class="tex">Facture en détails</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nom Client</th>
+            <th>Numéro pièce</th>
+         <th>Montant</th>
+         <th>Date de facture</th>
+   
+        </tr>
+    </thead>
+    <tbody>
+        <tr  *ngFor="let dataitem of ListfacturesCl  ">
+         
+            <td>{{dataitem.t2.nom}}</td>
+            <td>{{dataitem.t2.numPiece}}</td>
+            <td>{{dataitem.t1.montant |  currency : ' TND '}}</td>
+           
+            <td>{{dataitem.t1.date_facture|date}}</td>
+           
+            
+          
+    
+            
+          
+       
+        </tr>
+    </tbody>
+
+
+</table>

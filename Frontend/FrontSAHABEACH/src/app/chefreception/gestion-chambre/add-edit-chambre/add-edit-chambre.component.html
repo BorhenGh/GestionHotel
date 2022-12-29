@@ -1,0 +1,53 @@
+<h1 mat-dialog-title>Ajouter une Chambre</h1>
+
+<form class="example-form"  [formGroup]="Reactiveform" (ngSubmit)=" SaveChambreData()">
+  <mat-form-field class="example-full-width">
+    <mat-label>Id chambre </mat-label>
+    <input matInput placeholder="Id chambre" formControlName="idchambre" >
+  </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Num chambre </mat-label>
+      <input matInput placeholder="Num  chambre" formControlName="numChambre" value="0">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>Nombre places</mat-label>
+        <input matInput placeholder="Nombre des places" formControlName="nbrePlaces" value="0">
+      </mat-form-field>
+      
+      <mat-form-field appearance="fill">
+        <mat-label>Etat chambre</mat-label>
+        <select matNativeControl required formControlName="etat">
+          <option value="Réservée">Réservée</option>
+          <option value="Disponible">Disponible</option>
+        
+        </select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Type chambre</mat-label>
+      <select matNativeControl required formControlName="type">
+        <option value="Chambre simple">Chambre simple</option>
+        <option value="Chambre double/standard">Chambre double/standard</option>
+        <option value="Chambre pour 4 personnes">Chambre pour 4 personnes</option>
+        <option value="Chambre familiale/Suite familiale">Chambre familiale/Suite familiale</option>
+      </select>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Prix</mat-label>
+      <input matInput formControlName="prix" placeholder="Nombre des places" value="0">
+    </mat-form-field>
+    <div mat-dialog-actions>
+      <button mat-raised-button color="warn" mat-dialog-close>Fermer</button>
+      <button  type="submit" [disabled]="Reactiveform.invalid" mat-raised-button color="primary" cdkFocusInitial  *ngIf="editmode==true">Modifier</button>
+      <button  type="submit" [disabled]="Reactiveform.invalid" mat-raised-button color="primary" cdkFocusInitial *ngIf="editmode==false">Enregistrer</button>
+      
+    </div>
+    
+ 
+
+      
+
+  
+  
+    
+  </form>
+

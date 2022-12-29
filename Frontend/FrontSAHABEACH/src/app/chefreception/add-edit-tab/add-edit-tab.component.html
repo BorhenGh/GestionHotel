@@ -1,0 +1,53 @@
+<h1 mat-dialog-title>Ajouter une Table</h1>
+
+<form class="example-form"  [formGroup]="Reactiveform" (ngSubmit)=" SaveTablesData()">
+  <mat-form-field class="example-full-width">
+    <mat-label>Id Table </mat-label>
+    <input matInput  formControlName="idtable" >
+  </mat-form-field>
+   
+      
+   
+   
+    <mat-form-field class="example-full-width">
+      <mat-label>Numéro Table</mat-label>
+      <input matInput formControlName="numTable" placeholder="" value="0">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Service de Table</mat-label>
+        <select matNativeControl required formControlName="type">
+          <option value="Service Américain">Service Américain</option>
+          <option value="Service en argent ou à l'Anglaise">Service en argent ou à l'Anglaise</option>
+          <option value="Service à la Française ou de majordome">Service à la Française ou de majordome</option>
+          <option value="Service à la Tunisienne ">Service à la Tunisienne</option>
+        </select>
+  
+    </mat-form-field>  
+    <mat-form-field appearance="fill">
+      <mat-label>Etat Table</mat-label>
+      <select matNativeControl required formControlName="etat">
+        <option value="Réservée">Réservée</option>
+        <option value="Disponible">Disponible</option>
+      
+      </select>
+  </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>Prix service de  Table</mat-label>
+        <input matInput formControlName="prix" placeholder="" value="0">
+      </mat-form-field>
+    <div mat-dialog-actions>
+      <button mat-raised-button color="warn" mat-dialog-close>Fermer</button>
+      <button  type="submit" [disabled]="Reactiveform.invalid" mat-raised-button color="primary" cdkFocusInitial  *ngIf="editmode==true">Modifier</button>
+      <button  type="submit" [disabled]="Reactiveform.invalid" mat-raised-button color="primary" cdkFocusInitial *ngIf="editmode==false">Enregistrer</button>
+      
+    </div>
+    
+ 
+
+      
+
+  
+  
+    
+  </form>
+
